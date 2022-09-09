@@ -1,0 +1,25 @@
+{
+  "name": "goit-node-hm-01",
+  "version": "1.0.0",
+  "description": "Node Homework #1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unkindled11/goit-node-hm-01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unkindled11/goit-node-hm-01/issues"
+  },
+  "homepage": "https://github.com/unkindled11/goit-node-hm-01#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
