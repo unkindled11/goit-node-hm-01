@@ -17,8 +17,10 @@ async function invokeAction({ action, id, name, email, phone }) {
       console.log(newContact);
       break;
 
-    // case "remove":
-    //   break;
+    case "remove":
+      const deleteContact = await  removeContact(id)
+      console.log(deleteContact)
+      break;
 
     default:
       console.log("Unknown action");
@@ -31,3 +33,4 @@ invokeAction({ action: "list" });
 //   id: "2",
 // });
 // invokeAction({ action: "add", name: "dima", email: "zxczxc", phone: "zxx" });
+invokeAction({action:"remove", id:"1"})
