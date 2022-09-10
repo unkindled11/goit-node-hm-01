@@ -21,5 +21,8 @@
   "homepage": "https://github.com/unkindled11/goit-node-hm-01#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
   }
 }
