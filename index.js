@@ -1,25 +1,44 @@
-const { listContacts, getContactById, addContact } = require("./contacts");
+const {
+  listContacts,
+  getContactById,
+  addContact,
+  removeContact,
+} = require("./db/contacts");
+
+const { Command } = require("commander");
+const program = new Command();
+
+program
+  .option("-a, --action <type>")
+  .option("-i, --id <type>")
+  .option("-n, --name <type>")
+  .option("-p, --phone <type>")
+  .option("-e, --email <type>");
+
+program.parse(process.argv);
+
+const options = program.opts();
 
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const contacts = await listContacts();
-      console.log(contacts);
+      console.table(contacts);
       break;
 
     case "get":
       const contact = await getContactById(id);
-      console.log(contact);
+      console.table(contact);
       break;
 
     case "add":
       const newContact = await addContact(name, email, phone);
-      console.log(newContact);
+      console.table(newContact);
       break;
 
     case "remove":
-      const deleteContact = await  removeContact(id)
-      console.log(deleteContact)
+      const deleteContact = await removeContact(id);
+      console.table(deleteContact);
       break;
 
     default:
@@ -27,10 +46,12 @@ async function invokeAction({ action, id, name, email, phone }) {
   }
 }
 
-invokeAction({ action: "list" });
+// invokeAction({ action: "list" });
 // invokeAction({
 //   action: "get",
 //   id: "2",
 // });
 // invokeAction({ action: "add", name: "dima", email: "zxczxc", phone: "zxx" });
-invokeAction({action:"remove", id:"1"})
+// invokeAction({ action: "remove", id: "7227b411-3026-41a6-ae01-88bbacef14ca" });
+
+invokeAction(options);
